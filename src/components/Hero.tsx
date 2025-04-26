@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -20,7 +21,9 @@ export const Hero = () => {
             Discover amazing deals on thousands of products with fast delivery and
             secure payments.
           </p>
-          <Button className="bg-primary hover:bg-primary/90">Shop Now</Button>
+          <Button className="bg-primary hover:bg-primary/90" asChild>
+            <Link to="/products">Shop Now</Link>
+          </Button>
         </div>
       </div>
     </div>

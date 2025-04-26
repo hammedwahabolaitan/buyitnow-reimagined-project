@@ -1,15 +1,23 @@
 
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 interface ProductCardProps {
   title: string;
   price: number;
   image: string;
   rating: number;
+  id?: number;
 }
 
 export const ProductCard = ({ title, price, image, rating }: ProductCardProps) => {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toast.success(`${title} added to cart!`);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
       <div className="aspect-square relative overflow-hidden rounded-t-lg">
@@ -33,7 +41,7 @@ export const ProductCard = ({ title, price, image, rating }: ProductCardProps) =
         </div>
         <div className="mt-2 flex items-center justify-between">
           <p className="text-lg font-bold text-primary">₦{price.toLocaleString()}</p>
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" onClick={handleAddToCart}>
             Add to Cart
           </Button>
         </div>

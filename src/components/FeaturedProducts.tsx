@@ -1,5 +1,6 @@
 
 import { ProductCard } from "./ProductCard";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -39,7 +40,9 @@ export const FeaturedProducts = () => {
         <h2 className="text-2xl font-bold mb-8">Featured Products</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            <Link key={product.id} to={`/product/${product.id}`}>
+              <ProductCard {...product} />
+            </Link>
           ))}
         </div>
       </div>

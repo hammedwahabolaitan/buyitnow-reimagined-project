@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const categories = [
   { name: "Electronics", image: "/photo-1498050108023-c5249f4df085" },
@@ -27,8 +28,8 @@ export const Categories = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <Button variant="secondary" className="text-white">
-                  {category.name}
+                <Button variant="secondary" className="text-white" asChild>
+                  <Link to="/products">{category.name}</Link>
                 </Button>
               </div>
             </div>
